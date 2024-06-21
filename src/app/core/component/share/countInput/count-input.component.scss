@@ -1,0 +1,8 @@
+.input-wrap {
+  @apply flex justify-center mt-[16px] mb-[5px];
+
+  input {
+    @apply mx-[10px] px-[5px];
+    border: 1px solid gray;
+  }
+}

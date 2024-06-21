@@ -1,0 +1,36 @@
+<mat-card>
+  <img
+    mat-card-image
+    src="{{ product.productImage }}"
+    alt="Photo of a Shiba Inu"
+  />
+  <mat-card-title>
+    <div class="title-wrap">
+      <h4>{{ product.productName }}</h4>
+      <h3>${{ product.productPrice }}</h3>
+    </div>
+  </mat-card-title>
+
+  <mat-card-content>
+    <p class="prodct-description">{{ product.productDescription }}</p>
+    <form [formGroup]="form">
+      <app-count-input
+        #countInput
+        [restProduct]="product.productCount"
+        formControlName="count"
+      ></app-count-input>
+    </form>
+    <p class="product-count">剩餘{{ product.productCount }}件商品</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <app-button-group [side]="'center'">
+      <app-button
+        [value]="'加入購物車'"
+        [appearance]="'outline'"
+        (click)="onAddCart(product.productId, +form.value.count!)"
+      ></app-button>
+      <app-button [value]="'直接購買'"></app-button>
+    </app-button-group>
+  </mat-card-actions>
+</mat-card>

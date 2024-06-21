@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<div mat-dialog-content>{{ data.content }}</div>
+<div mat-dialog-actions [align]="'center'">
+  <app-button-group>
+    <app-button
+      *ngIf="data.type === 'confirm'"
+      mat-dialog-close
+      [value]="'取消'"
+      [appearance]="'outline'"
+      (click)="cancel()"
+    ></app-button>
+    <app-button
+      mat-dialog-close
+      [value]="'確定'"
+      (click)="execute()"
+    ></app-button>
+  </app-button-group>
+</div>

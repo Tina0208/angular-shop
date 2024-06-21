@@ -1,0 +1,10 @@
+<div class="input-wrap">
+  <app-icon [iconName]="'minus'" (click)="minusProduct()"></app-icon>
+  <input
+    type="text"
+    [(ngModel)]="content"
+    (ngModelChange)="contentChanged()"
+    (blur)="blur()"
+  />
+  <app-icon [iconName]="'add'" (click)="addProduct()"></app-icon>
+</div>

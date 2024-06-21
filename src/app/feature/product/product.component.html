@@ -1,0 +1,10 @@
+<app-base-page>
+  <div class="banner">
+    <img src="assets/image/banner.webp" alt="new-product" />
+  </div>
+  <app-card-container>
+    <ng-container *ngFor="let product of productList">
+      <app-card [product]="product" (addCart)="addCart($event)"></app-card>
+    </ng-container>
+  </app-card-container>
+</app-base-page>

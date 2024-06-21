@@ -1,0 +1,7 @@
+button {
+  @apply px-[15px] py-[8px];
+
+  &:disabled {
+    @apply bg-[theme(colors.gray.100)] rounded-md;
+  }
+}

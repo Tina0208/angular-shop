@@ -1,0 +1,18 @@
+footer {
+  @apply w-full flex flex-col items-center py-[30px] bg-[theme(colors.purple.500)] text-[theme(colors.white)];
+  position: absolute;
+  bottom: 0;
+
+  h2,
+  div {
+    @apply pb-[10px];
+  }
+
+  div {
+    @apply flex items-center gap-2;
+  }
+
+  p {
+    @apply w-[90%] pt-[10px] text-center border-t-2 border-[theme(colors.white)];
+  }
+}

@@ -1,0 +1,20 @@
+section {
+  @apply py-[10px] bg-[theme(colors.yellow.500)];
+  width: 100%;
+  overflow: hidden;
+
+  p {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: -20%;
+  }
+}

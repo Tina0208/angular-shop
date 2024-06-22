@@ -1,0 +1,11 @@
+<input
+  [disabled]="disabled"
+  [placeholder]="placeholder"
+  [(ngModel)]="content"
+  (ngModelChange)="contentChanged()"
+/>
+<ng-container>
+  <p class="error-message">
+    {{ ngControl?.control?.errors?.['errorMessage'] }}
+  </p>
+</ng-container>

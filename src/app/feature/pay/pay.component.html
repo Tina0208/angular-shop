@@ -1,0 +1,191 @@
+<app-base-page>
+  <app-stepper [currentStep]="currentStep"></app-stepper>
+  <ng-container [ngSwitch]="currentStep">
+    <ng-container *ngSwitchCase="0">
+      <div class="pay-detail-wrap">
+        <app-outline [label]="'訂單商品'">
+          <app-cart-container [type]="'pay'">
+            <ng-container *ngFor="let item of payList; let i = index">
+              <app-cart [type]="'pay'" [serialNumber]="i + 1" [product]="item">
+              </app-cart>
+            </ng-container>
+          </app-cart-container>
+        </app-outline>
+
+        <app-outline [label]="'賣場優惠券'">
+          <p class="coupon-title">運費抵用券</p>
+          <ng-container
+            *ngTemplateOutlet="
+              coupon;
+              context: { $implicit: deliveryFreeCoupon }
+            "
+          ></ng-container>
+
+          <p class="coupon-title">折扣券</p>
+          <ng-container
+            *ngTemplateOutlet="coupon; context: { $implicit: discountCoupon }"
+          ></ng-container>
+        </app-outline>
+
+        <app-outline [label]="'付款費用'">
+          <mat-list>
+            <app-list [label]="'運費'"
+              ><p>${{ totalDeliveryFee }}</p></app-list
+            >
+            <app-list [label]="'商品費'"
+              ><p>${{ totalPrice }}</p></app-list
+            >
+            <app-list [label]="'商品數量'"
+              ><p>{{ totalProductCount }}</p></app-list
+            >
+            <app-list [label]="'總計'"
+              ><p>${{ totalPrice + totalDeliveryFee }}</p></app-list
+            >
+          </mat-list>
+        </app-outline>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="1">
+      <div class="pay-buyer-wrap">
+        <app-outline [label]="'訂購人資料'">
+          <form [formGroup]="buyerForm">
+            <mat-list>
+              <app-list [label]="'姓名'">
+                <app-input
+                  formControlName="name"
+                  [placeholder]="'例：王大明'"
+                ></app-input>
+              </app-list>
+              <app-list [label]="'電話'">
+                <app-input
+                  formControlName="phone"
+                  [placeholder]="'例：0912345678'"
+                ></app-input>
+              </app-list>
+              <app-list [label]="'e-mail'">
+                <app-input
+                  formControlName="mail"
+                  [placeholder]="'例：abc@gmail.com'"
+                ></app-input>
+              </app-list>
+              <app-list [label]="'配送地址'">
+                <app-input
+                  formControlName="address"
+                  [placeholder]="'例：台北市中正區100號'"
+                ></app-input>
+              </app-list>
+            </mat-list>
+          </form>
+        </app-outline>
+
+        <app-outline [label]="'收件人資料'">
+          <form [formGroup]="receiverForm">
+            <mat-list>
+              <app-list [label]="'同訂購人'">
+                <app-checkbox
+                  formControlName="isSame"
+                  (change)="updateReceiverFormValue()"
+                ></app-checkbox>
+              </app-list>
+              <app-list [label]="'姓名'">
+                <app-input
+                  formControlName="name"
+                  [placeholder]="'例：王大明'"
+                ></app-input>
+              </app-list>
+              <app-list [label]="'電話'">
+                <app-input
+                  formControlName="phone"
+                  [placeholder]="'例：0912345678'"
+                ></app-input>
+              </app-list>
+              <app-list [label]="'e-mail'">
+                <app-input
+                  formControlName="mail"
+                  [placeholder]="'例：abc@gmail.com'"
+                ></app-input>
+              </app-list>
+              <app-list [label]="'配送地址'">
+                <app-input
+                  formControlName="address"
+                  [placeholder]="'例：台北市中正區100號'"
+                ></app-input>
+              </app-list>
+            </mat-list>
+          </form>
+        </app-outline>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="2">
+      <app-outline [label]="'訂單明細'">
+        <mat-list>
+          <app-list [label]="'訂單編號'"><p>12345678</p></app-list>
+          <app-list [label]="'訂單時間'"
+            ><p>{{ today | dateTime }}</p></app-list
+          >
+          <app-list [label]="'訂單金額'"
+            ><p>${{ totalPrice + totalDeliveryFee }}</p></app-list
+          >
+          <app-list [label]="'訂單商品'">
+            <ng-container *ngFor="let item of payList">
+              <p>{{ item.productName }} x {{ item.productCartCount }} /</p>
+            </ng-container>
+          </app-list>
+          <app-list [label]="'收件人姓名'"
+            ><p>{{ receiverForm.value.name }}</p></app-list
+          >
+          <app-list [label]="'收件人手機'"
+            ><p>{{ receiverForm.value.phone }}</p></app-list
+          >
+          <app-list [label]="'收件地址'"
+            ><p>{{ receiverForm.value.address }}</p></app-list
+          >
+        </mat-list>
+      </app-outline>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #coupon let-couponList>
+    <div class="coupon-container">
+      <ng-container *ngFor="let coupon of couponList">
+        <div class="coupon">
+          <app-radio
+            [name]="'coupon'"
+            (click)="selectCoupon(coupon)"
+          ></app-radio>
+          <app-coupon [coupon]="coupon"></app-coupon>
+        </div>
+      </ng-container>
+    </div>
+  </ng-template>
+
+  <ng-template #buttonAction>
+    <app-button-group [side]="'center'">
+      <ng-container [ngSwitch]="currentStep">
+        <ng-container *ngSwitchCase="0">
+          <app-button
+            [value]="'回上一頁'"
+            [appearance]="'outline'"
+            routerLink="/cart"
+          ></app-button>
+          <app-button [value]="'下一步'" (click)="nextPage()"></app-button>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="1">
+          <app-button
+            [value]="'上一步'"
+            [appearance]="'outline'"
+            (click)="prevPage()"
+          ></app-button>
+          <app-button [value]="'確認'" (click)="confirm()"></app-button>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="2">
+          <app-button [value]="'返回商品頁'" routerLink="/product"></app-button>
+        </ng-container>
+      </ng-container>
+    </app-button-group>
+  </ng-template>
+</app-base-page>

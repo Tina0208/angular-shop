@@ -17,6 +17,13 @@ import { CheckboxComponent } from '../component/share/checkbox/checkbox.componen
 import { CartComponent } from '../component/share/cart/cart.component';
 import { CartContainerComponent } from '../component/share/cart/cart-container.component';
 import { DialogComponent } from '../component/share/dialog/dialog.component';
+import { StepperComponent } from '../component/share/stepper/stepper.component';
+import { OutlineComponent } from '../component/share/outline/outline.component';
+import { ListComponent } from '../component/share/list/list.component';
+import { InputComponent } from '../component/share/input/input.component';
+import { RadioComponent } from '../component/share/radio/radio.component';
+import { CouponComponent } from '../component/share/coupon/coupon.component';
+import { DateTimePipe } from '../pipe/dateTime/date-time.pipe';
 
 
 
@@ -35,7 +42,14 @@ import { DialogComponent } from '../component/share/dialog/dialog.component';
     CheckboxComponent,
     CartComponent,
     CartContainerComponent,
-    DialogComponent
+    DialogComponent,
+    StepperComponent,
+    OutlineComponent,
+    ListComponent,
+    InputComponent,
+    RadioComponent,
+    CouponComponent,
+    DateTimePipe
   ],
   imports: [
     CommonModule,
@@ -57,7 +71,15 @@ import { DialogComponent } from '../component/share/dialog/dialog.component';
     CheckboxComponent,
     CartComponent,
     CartContainerComponent,
-    DialogComponent
+    DialogComponent,
+    StepperComponent,
+    OutlineComponent,
+    ListComponent,
+    InputComponent,
+    RadioComponent,
+    CouponComponent,
+    ReactiveFormsModule,
+    DateTimePipe
   ],
 })
 export class SharedModule { }

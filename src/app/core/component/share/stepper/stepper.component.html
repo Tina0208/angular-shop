@@ -1,0 +1,9 @@
+<mat-stepper headerPosition="bottom" #stepper>
+  <ng-container *ngFor="let step of stepList">
+    <mat-step [editable]="false">
+      <ng-template matStepLabel>
+        <h5>{{ step.label }}</h5>
+      </ng-template>
+    </mat-step>
+  </ng-container>
+</mat-stepper>

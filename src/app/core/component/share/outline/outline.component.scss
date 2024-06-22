@@ -1,0 +1,9 @@
+div {
+  @apply rounded p-[20px] border-[2px] border-[theme(colors.yellow.500)];
+}
+
+h4 {
+  @apply bg-[theme(colors.yellow.500)] h-[58px] pl-[20px];
+  line-height: 58px;
+}
+

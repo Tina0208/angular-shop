@@ -1,0 +1,12 @@
+.title {
+  @apply bg-[theme(colors.yellow.500)] w-[20%] min-w-[150px] max-w-[250px] p-[15px] mr-[20px] text-end;
+}
+
+.mat-list-base {
+  padding-top: 0;
+}
+
+::ng-deep .mat-list-base .mat-list-item,
+::ng-deep .mat-list-base .mat-list-option {
+  @apply h-[70px];
+}

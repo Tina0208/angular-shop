@@ -12,8 +12,9 @@ export const payReducer = createReducer(
 
   on(PayActions.loadPayData, (state, action) => ({
     ...state,
-    action
+    payItems: [...action.payItems]
   })),
   on(PayActions.loadPaysSuccess, (state, action) => state),
   on(PayActions.loadPaysFailure, (state, action) => state),
+
 );

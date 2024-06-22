@@ -1,7 +1,9 @@
 import { createAction, props } from '@ngrx/store';
+import { Pay } from '../../model/type/interface';
 
-export const loadPays = createAction(
-  '[Pay] Load Pays'
+export const loadPayData = createAction(
+  '[Pay] Load Pays',
+  props<{ payItems: Pay[] }>()
 );
 
 export const loadPaysSuccess = createAction(

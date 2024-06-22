@@ -1,0 +1,11 @@
+.info {
+  @apply w-full;
+
+  h4:nth-child(1) {
+    @apply mt-[20px];
+  }
+
+  h4:nth-child(2) {
+    @apply mb-[20px];
+  }
+}

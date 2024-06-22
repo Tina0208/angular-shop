@@ -10,10 +10,13 @@ import { BasePageComponent } from '../component/share/basePage/base-page.compone
 import { CardComponent } from '../component/share/card/card.component';
 import { CardContainerComponent } from '../component/share/card/card-container.component';
 import { CountInputComponent } from '../component/share/countInput/count-input.component';
-import { DialogComponent } from '../component/share/dialog/dialog.component';
 import { ButtonComponent } from '../component/share/button/button.component';
 import { ButtonGroupComponent } from '../component/share/button/button-group.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CheckboxComponent } from '../component/share/checkbox/checkbox.component';
+import { CartComponent } from '../component/share/cart/cart.component';
+import { CartContainerComponent } from '../component/share/cart/cart-container.component';
+import { DialogComponent } from '../component/share/dialog/dialog.component';
 
 
 
@@ -27,9 +30,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CardComponent,
     CardContainerComponent,
     CountInputComponent,
-    DialogComponent,
     ButtonComponent,
-    ButtonGroupComponent
+    ButtonGroupComponent,
+    CheckboxComponent,
+    CartComponent,
+    CartContainerComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
@@ -46,9 +52,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CardComponent,
     CardContainerComponent,
     CountInputComponent,
-    DialogComponent,
     ButtonComponent,
-    ButtonGroupComponent
-  ]
+    ButtonGroupComponent,
+    CheckboxComponent,
+    CartComponent,
+    CartContainerComponent,
+    DialogComponent
+  ],
 })
 export class SharedModule { }

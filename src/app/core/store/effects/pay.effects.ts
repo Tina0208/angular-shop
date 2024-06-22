@@ -11,7 +11,7 @@ export class PayEffects {
   loadPays$ = createEffect(() => {
     return this.actions$.pipe(
 
-      ofType(PayActions.loadPays),
+      ofType(PayActions.loadPayData),
       concatMap(() =>
         /** An EMPTY observable only emits completion. Replace with your own observable API request */
         EMPTY.pipe(
@@ -21,6 +21,5 @@ export class PayEffects {
     );
   });
 
-
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions) { }
 }

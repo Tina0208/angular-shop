@@ -1,0 +1,43 @@
+<tr>
+  <td>
+    <ng-content select="app-checkbox"></ng-content>
+    <ng-container *ngIf="serialNumber">
+      <p>{{ serialNumber }}</p>
+    </ng-container>
+  </td>
+  <td>
+    {{ product.productName }}
+  </td>
+  <td>
+    <img
+      src="{{product.productImage}}"
+      alt="Photo of a Shiba Inu"
+    />
+  </td>
+  <td>
+    {{ product.productPrice | number }}
+  </td>
+  <td>
+    <ng-container [ngSwitch]="type">
+      <ng-container *ngSwitchCase="'cart'">
+        <ng-content select="app-count-input"></ng-content>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'pay'">
+        {{ product.productCartCount | number }}
+      </ng-container>
+    </ng-container>
+  </td>
+  <td>
+    {{ +product.productPrice * product.productCartCount | number }}
+  </td>
+  <ng-container *ngIf="type === 'cart'">
+    <td>
+      <app-icon
+        [size]="'20'"
+        [iconName]="'delete'"
+        (click)="onProductDelete(product.productId)"
+      ></app-icon>
+    </td>
+  </ng-container>
+</tr>

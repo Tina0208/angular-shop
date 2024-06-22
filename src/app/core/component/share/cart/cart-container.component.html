@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>
+        <ng-container [ngSwitch]="type">
+          <ng-container *ngSwitchCase="'cart'">
+            <ng-content select="app-checkbox"></ng-content>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'pay'"> 序號 </ng-container>
+        </ng-container>
+      </th>
+
+      <th>商品</th>
+      <th></th>
+      <th>單價</th>
+      <th>數量</th>
+      <th>總計</th>
+      <ng-container *ngIf="type === 'cart'">
+        <th>刪除</th>
+      </ng-container>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-content></ng-content>
+  </tbody>
+</table>

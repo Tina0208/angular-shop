@@ -1,0 +1,60 @@
+<app-base-page>
+  <form [formGroup]="form">
+    <app-cart-container>
+      <app-checkbox
+        (change)="toggleAllChecked()"
+        formControlName="allChecked"
+        [disabled]="cartList.length === 0"
+      ></app-checkbox>
+
+      <ng-container formArrayName="carts">
+        <ng-container
+          *ngFor="
+            let cartForm of form.controls['carts'].controls;
+            let i = index
+          "
+        >
+          <div [formGroupName]="i">
+            <app-cart
+              [product]="cartList[i]"
+              (deleteProduct)="deleteProduct($event, i)"
+            >
+              <app-checkbox
+                formControlName="checked"
+                (change)="checkAllChecked()"
+              ></app-checkbox>
+
+              <app-count-input
+                formControlName="count"
+                [restProduct]="cartList[i].productCount"
+                (minus)="minusProduct($event, cartList[i])"
+                (plus)="plusProduct($event, cartList[i])"
+                (countInput)="inputProductCount($event, cartList[i])"
+              ></app-count-input>
+            </app-cart>
+          </div>
+        </ng-container>
+      </ng-container>
+    </app-cart-container>
+  </form>
+
+  <div class="info">
+    <h4>總金額(共{{ totalProductCount | number }}個商品)</h4>
+    <h4>${{ totalPrice | number }}</h4>
+  </div>
+
+  <ng-template #buttonAction>
+    <app-button-group [side]="'center'">
+      <app-button
+        [value]="'返回商品頁'"
+        [appearance]="'outline'"
+        routerLink="/product"
+      ></app-button>
+      <app-button
+        [value]="'去買單'"
+        (click)="buy()"
+        [disabled]="!productSeleced"
+      ></app-button>
+    </app-button-group>
+  </ng-template>
+</app-base-page>

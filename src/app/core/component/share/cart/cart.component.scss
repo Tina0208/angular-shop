@@ -1,0 +1,38 @@
+table {
+  @apply w-full;
+
+  tbody {
+    @apply mt-[16px] flex flex-col gap-3;
+    border-top: 1em solid transparent;
+  }
+}
+
+tr {
+  @apply p-[16px] flex justify-around items-center bg-[#ffffff6e] text-center;
+  border-radius: 4px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  & > td:nth-child(3),
+  & > th:nth-child(3) {
+    flex: 3;
+  }
+
+  & > td:nth-child(3) {
+    width: 200px;
+    height: 150px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: left;
+    }
+  }
+
+  & > td:nth-child(-n + 2),
+  & > td:nth-last-child(-n + 4),
+  & > th:nth-child(-n + 2),
+  & > th:nth-last-child(-n + 4) {
+    flex: 1;
+  }
+}

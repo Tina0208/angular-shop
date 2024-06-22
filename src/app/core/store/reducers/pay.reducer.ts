@@ -10,14 +10,10 @@ export const initialState: PayState = {
 export const payReducer = createReducer(
   initialState,
 
-  // on(PayActions.loadPayData, (state, action) => {
-  //   console.log('action',action)
-  //   return {
-  //     ...state,
-  //     payItems: [...action.payItems]
-  //   }
-  // }),
-  // on(PayActions.loadPaysSuccess, (state, action) => state),
-  // on(PayActions.loadPaysFailure, (state, action) => state),
-
+  on(PayActions.loadPayData, (state, action) => ({
+    ...state,
+    action
+  })),
+  on(PayActions.loadPaysSuccess, (state, action) => state),
+  on(PayActions.loadPaysFailure, (state, action) => state),
 );

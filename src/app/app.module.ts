@@ -23,6 +23,7 @@ import { payFeatureKey, payReducer } from './core/store/reducers/pay.reducer';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,

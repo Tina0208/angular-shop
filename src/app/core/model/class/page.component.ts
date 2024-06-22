@@ -1,4 +1,3 @@
-/* eslint-disable @angular-eslint/component-class-suffix */
 import { Component, ViewChild } from '@angular/core';
 
 import { FormGroup } from '@angular/forms';

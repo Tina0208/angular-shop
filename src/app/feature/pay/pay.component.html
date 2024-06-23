@@ -84,7 +84,7 @@
             <mat-list>
               <app-list [label]="'同訂購人'">
                 <app-checkbox
-                  formControlName="isSame"
+                  formControlName="sameAsBuyer"
                   (change)="updateReceiverFormValue()"
                 ></app-checkbox>
               </app-list>
@@ -148,17 +148,18 @@
   </ng-container>
 
   <ng-template #coupon let-couponList>
-    <div class="coupon-container">
+    <form [formGroup]="couponForm" class="coupon-container">
       <ng-container *ngFor="let coupon of couponList">
         <div class="coupon">
           <app-radio
-            [name]="'coupon'"
+            formControlName="coupon"
+            [radioButton]="{ name: 'coupon', value: coupon.couponId }"
             (click)="selectCoupon(coupon)"
           ></app-radio>
           <app-coupon [coupon]="coupon"></app-coupon>
         </div>
       </ng-container>
-    </div>
+    </form>
   </ng-template>
 
   <ng-template #buttonAction>

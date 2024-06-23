@@ -60,7 +60,10 @@ export class PayComponent extends Page implements OnInit {
     phone: new FormControl('', [required(), validatePhoneNumber()]),
     mail: new FormControl('', [required(), validateEmail()]),
     address: new FormControl('', [required()]),
-    isSame: new FormControl('')
+    sameAsBuyer: new FormControl('')
+  });
+  couponForm: FormGroup = new FormGroup({
+    coupon: new FormControl('')
   });
   @ViewChild(StepperComponent)
   stepper?: StepperComponent;
@@ -86,11 +89,6 @@ export class PayComponent extends Page implements OnInit {
 
   private _loadCouponListData() {
     this._store.dispatch(loadCoupons());
-    // this._store.select(selectCouponState).subscribe((data) => {
-    //   this.deliveryFreeCoupon = data.filter((item) => item.couponType === 'delivery-free');
-    //   this.discountCoupon = data.filter((item) => item.couponType !== 'delivery-free');
-    // });
-
     this._store.select(selectDeliveryFreeCoupon).subscribe((data) => this.deliveryFreeCoupon = data);
     this._store.select(selectDiscountCoupon).subscribe((data) => this.discountCoupon = data);
   }
@@ -129,7 +127,7 @@ export class PayComponent extends Page implements OnInit {
   }
 
   updateReceiverFormValue() {
-    if (this.receiverForm.value.isSame) {
+    if (this.receiverForm.value.sameAsBuyer) {
       this.receiverForm.patchValue(this.buyerForm.value);
     } else {
       this.receiverForm.reset();

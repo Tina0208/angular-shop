@@ -1,1 +1,7 @@
-<input type="radio" name="name" />
+<input
+  type="radio"
+  name="{{ radioButton.name }}"
+  value="{{ radioButton.value }}"
+  [(ngModel)]="content"
+  (ngModelChange)="contentChanged()"
+/>

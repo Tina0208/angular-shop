@@ -2,22 +2,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { appConfig } from './app.config';
 import { SharedModule } from './core/module/shared.module';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { productFeatureKey, productReducer } from './core/store/reducers/product.reducer';
 import { cartFeatureKey, cartReducer } from './core/store/reducers/cart.reducer';
-import { CommonModule } from '@angular/common';
-// import { payFeatureKey, payReducer } from './core/store/reducers/pay.reducer';
-import { ProductEffects } from './core/store/effects/product.effects';
-import { payFeatureKey, payReducer } from './core/store/reducers/pay.reducer';
+import { productFeatureKey, productReducer } from './core/store/reducers/product.reducer';
 import { CouponEffects } from './core/store/effects/coupon.effects';
+import { ProductEffects } from './core/store/effects/product.effects';
 import { couponFeatureKey, couponReducer } from './core/store/reducers/coupon.reducer';
+import { payFeatureKey, payReducer } from './core/store/reducers/pay.reducer';
 
 @NgModule({
   declarations: [

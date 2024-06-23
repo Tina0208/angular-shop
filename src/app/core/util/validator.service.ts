@@ -8,8 +8,8 @@ import { AbstractControl, ValidatorFn } from "@angular/forms";
 export function required(): ValidatorFn {
   return (c: AbstractControl) => {
     const content = c.value?.trim();
-    const inValid = !content;
-    return inValid ? { errorMessage: '必填欄位' } : null;
+    const invalid = !content;
+    return invalid ? { errorMessage: '必填欄位' } : null;
   }
 }
 

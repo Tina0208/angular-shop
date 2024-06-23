@@ -16,6 +16,8 @@ import { CommonModule } from '@angular/common';
 // import { payFeatureKey, payReducer } from './core/store/reducers/pay.reducer';
 import { ProductEffects } from './core/store/effects/product.effects';
 import { payFeatureKey, payReducer } from './core/store/reducers/pay.reducer';
+import { CouponEffects } from './core/store/effects/coupon.effects';
+import { couponFeatureKey, couponReducer } from './core/store/reducers/coupon.reducer';
 
 @NgModule({
   declarations: [
@@ -28,8 +30,13 @@ import { payFeatureKey, payReducer } from './core/store/reducers/pay.reducer';
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
-    StoreModule.forRoot({ [productFeatureKey]: productReducer, [cartFeatureKey]: cartReducer, [payFeatureKey]: payReducer }, {}),
-    EffectsModule.forRoot([ProductEffects])
+    StoreModule.forRoot({
+      [productFeatureKey]: productReducer,
+      [cartFeatureKey]: cartReducer,
+      [payFeatureKey]: payReducer,
+      [couponFeatureKey]: couponReducer
+    }, {}),
+    EffectsModule.forRoot([ProductEffects, CouponEffects])
   ],
   exports: [
   ],

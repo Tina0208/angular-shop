@@ -27,7 +27,7 @@ export class Page {
 
   scrollToInvalidFeild() {
     if (this.invalidFeild) this.invalidFeild.scrollIntoView({
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   }
 

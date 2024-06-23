@@ -1,11 +1,12 @@
 header {
-  @apply flex justify-between items-center py-[15px] px-[20px] bg-[theme(colors.purple.500)] text-[theme(colors.white)];
+  @apply flex justify-between items-center py-[15px] px-[20px] bg-[theme(colors.purple.500)] text-[theme(colors.white)] sticky top-0;
+  z-index: 99;
 
   h1 {
     @apply text-h2 flex gap-3;
   }
 
   ul {
-    @apply flex;
+    @apply flex gap-2;
   }
 }

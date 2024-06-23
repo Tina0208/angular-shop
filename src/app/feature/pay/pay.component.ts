@@ -7,6 +7,8 @@ import { Page } from 'src/app/core/model/class/page.component';
 import { Coupon, Pay } from 'src/app/core/model/type/interface';
 import { AlertService } from 'src/app/core/service/alert.service';
 import { buy } from 'src/app/core/store/actions/cart.actions';
+import { loadCoupons } from 'src/app/core/store/actions/coupon.actions';
+import { selectDeliveryFreeCoupon, selectDiscountCoupon } from 'src/app/core/store/selectors/coupon.selectors';
 import { selectPayState } from 'src/app/core/store/selectors/pay.selectors';
 import { required, validateEmail, validatePhoneNumber } from 'src/app/core/util/validator.service';
 
@@ -45,42 +47,8 @@ export class PayComponent extends Page implements OnInit {
   get totalDeliveryFee() {
     return this.coupounSelected.couponType === 'delivery-free' ? 0 : this.deliveryFee;
   };
-  deliveryFreeCoupon: Coupon[] = [
-    {
-      couponId: '1',
-      couponName: '$1,000免運券',
-      couponDescription: '低消$1,000',
-      couponType: "delivery-free",
-      limit: 1000,
-      deliveryFree: true
-    }
-  ];
-  discountCoupon: Coupon[] = [
-    {
-      couponId: '2',
-      couponName: '任選3件85折',
-      couponDescription: '低消3件商品',
-      couponType: "discount",
-      limit: 1000,
-      discount: 0.85
-    },
-    {
-      couponId: '3',
-      couponName: '滿$1000折$150',
-      couponDescription: '低消$1,000',
-      couponType: "price-off",
-      limit: 1000,
-      priceOff: 150
-    },
-    {
-      couponId: '4',
-      couponName: '滿$3000折$600',
-      couponDescription: '低消$3,000',
-      couponType: "price-off",
-      limit: 1000,
-      priceOff: 600
-    }
-  ];
+  deliveryFreeCoupon: Coupon[] = [];
+  discountCoupon: Coupon[] = [];
   buyerForm: FormGroup = new FormGroup({
     name: new FormControl('', [required()]),
     phone: new FormControl('', [required(), validatePhoneNumber()]),
@@ -106,14 +74,25 @@ export class PayComponent extends Page implements OnInit {
 
   ngOnInit(): void {
     this._loadPayListData();
+    this._loadCouponListData();
     this.scrollToTop();
   }
 
   private _loadPayListData() {
     this._store.select(selectPayState).subscribe((data) => {
-      console.log('data',data);
       this.payList = data;
     });
+  }
+
+  private _loadCouponListData() {
+    this._store.dispatch(loadCoupons());
+    // this._store.select(selectCouponState).subscribe((data) => {
+    //   this.deliveryFreeCoupon = data.filter((item) => item.couponType === 'delivery-free');
+    //   this.discountCoupon = data.filter((item) => item.couponType !== 'delivery-free');
+    // });
+
+    this._store.select(selectDeliveryFreeCoupon).subscribe((data) => this.deliveryFreeCoupon = data);
+    this._store.select(selectDiscountCoupon).subscribe((data) => this.discountCoupon = data);
   }
 
   private _scrollToStepper() {

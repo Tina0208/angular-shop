@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
-import { DialogComponent } from 'src/app/core/component/share/dialog/dialog.component';
 import { Page } from 'src/app/core/model/class/page.component';
 import { Cart } from 'src/app/core/model/type/interface';
 import { AlertService } from 'src/app/core/service/alert.service';
@@ -48,7 +46,6 @@ export class ShopCartComponent extends Page implements OnInit {
     private _formBuilder: FormBuilder,
     private _router: Router,
     private _alertService: AlertService,
-    public dialog: MatDialog
   ) { super() }
 
   ngOnInit(): void {
@@ -83,7 +80,6 @@ export class ShopCartComponent extends Page implements OnInit {
   }
 
   inputProductCount(count: number, item: Cart) {
-    console.log('count',count)
     this._store.dispatch(inputCount({ ...item, productCartCount: count }));
   }
 

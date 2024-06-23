@@ -54,7 +54,7 @@
       "couponId": "02",
       "couponName": "任選3件85折",
       "couponDescription": "低消3件商品",
-      "couponType": "delivery-free",
+      "couponType": "discount",
       "limit": 3,
       "discount": 0.85
     },
@@ -62,7 +62,7 @@
       "couponId": "03",
       "couponName": "滿$1000折$150",
       "couponDescription": "低消$1,000",
-      "couponType": "delivery-free",
+      "couponType": "price-off",
       "limit": 1000,
       "priceOff": 150
     },
@@ -70,7 +70,7 @@
       "couponId": "04",
       "couponName": "滿$3000折$600",
       "couponDescription": "低消$3,000",
-      "couponType": "delivery-free",
+      "couponType": "price-off",
       "limit": 3000,
       "priceOff": 600
     }

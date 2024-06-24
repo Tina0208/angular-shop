@@ -93,9 +93,8 @@ export class ShopCartComponent extends Page implements OnInit {
   }
 
   toggleAllChecked() {
-    const allProductChecked = this.allProductChecked;
     this.cartsFormControls.controls.forEach((control) => {
-      control.get('checked')?.setValue(allProductChecked ? false : true)
+      control.get('checked')?.setValue(this.allProductChecked ? false : true)
     });
   }
 

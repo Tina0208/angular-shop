@@ -11,16 +11,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { appConfig } from './app.config';
 import { SharedModule } from './core/module/shared.module';
-import { cartFeatureKey, cartReducer } from './core/store/reducers/cart.reducer';
-import { productFeatureKey, productReducer } from './core/store/reducers/product.reducer';
 import { CouponEffects } from './core/store/effects/coupon.effects';
 import { ProductEffects } from './core/store/effects/product.effects';
+import { cartFeatureKey, cartReducer } from './core/store/reducers/cart.reducer';
 import { couponFeatureKey, couponReducer } from './core/store/reducers/coupon.reducer';
 import { payFeatureKey, payReducer } from './core/store/reducers/pay.reducer';
+import { productFeatureKey, productReducer } from './core/store/reducers/product.reducer';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

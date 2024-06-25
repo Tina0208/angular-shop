@@ -18,8 +18,8 @@ import { required, validateEmail, validatePhoneNumber } from 'src/app/core/util/
   styleUrls: ['./pay.component.scss']
 })
 export class PayComponent extends Page implements OnInit {
+  private _deliveryFee: number = 60;
   currentStep: number = 0;
-  deliveryFee: number = 60;
   coupounSelected: Coupon = {} as Coupon;
   payList: Pay[] = [];
   today: Date = new Date();
@@ -36,16 +36,14 @@ export class PayComponent extends Page implements OnInit {
     switch (this.coupounSelected.couponType) {
       case 'discount':
         return initPrice * this.coupounSelected.discount!
-
       case 'price-off':
         return initPrice - this.coupounSelected.priceOff!
-
       default:
         return initPrice;
     }
   };
   get totalDeliveryFee() {
-    return this.coupounSelected.couponType === 'delivery-free' ? 0 : this.deliveryFee;
+    return this.coupounSelected.couponType === 'delivery-free' ? 0 : this._deliveryFee;
   };
   deliveryFreeCoupon: Coupon[] = [];
   discountCoupon: Coupon[] = [];
@@ -76,9 +74,9 @@ export class PayComponent extends Page implements OnInit {
   }
 
   ngOnInit(): void {
+    this.scrollToTop();
     this._loadPayListData();
     this._loadCouponListData();
-    this.scrollToTop();
   }
 
   private _loadPayListData() {

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -16,14 +16,11 @@ import { Component, Input, OnInit } from '@angular/core';
     '[class.active:scale-90]': 'true'
   }
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
   @Input() value: string = '按鈕';
   @Input() class: string = '';
   @Input() disabled: boolean = false;
   @Input() appearance: 'solid' | 'outline' = 'solid';
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 }

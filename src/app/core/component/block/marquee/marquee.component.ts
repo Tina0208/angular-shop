@@ -5,11 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './marquee.component.html',
   styleUrls: ['./marquee.component.scss']
 })
-export class MarqueeComponent implements OnInit {
-
+export class MarqueeComponent {
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

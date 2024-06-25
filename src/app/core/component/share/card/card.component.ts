@@ -17,13 +17,7 @@ export class CardComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder) { }
 
-  getcoupon(): void {
-    throw new Error('Method not implemented.');
-  }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   onAddCart(productId: string, count: number) {
     this.addCart.emit({ productId, count });

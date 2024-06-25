@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button-group',
@@ -12,11 +12,8 @@ import { Component, Input, OnInit } from '@angular/core';
     '[class.justify-end]': 'this.side === "right"',
   }
 })
-export class ButtonGroupComponent implements OnInit {
+export class ButtonGroupComponent {
   @Input() side: 'left' | 'right' | 'center' = 'left';
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 }

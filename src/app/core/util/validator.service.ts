@@ -1,9 +1,7 @@
 import { AbstractControl, ValidatorFn } from "@angular/forms";
 
 /**
- * 必填
- * @param control
- * @returns
+ * @name 必填
  */
 export function required(): ValidatorFn {
   return (c: AbstractControl) => {
@@ -14,9 +12,7 @@ export function required(): ValidatorFn {
 }
 
 /**
- * 驗證email格式
- * @param control
- * @returns
+ * @name 驗證email格式
  */
 export function validateEmail(): ValidatorFn {
   return (c: AbstractControl) => {
@@ -28,9 +24,7 @@ export function validateEmail(): ValidatorFn {
 }
 
 /**
- * 驗證電話號碼10碼
- * @param control
- * @returns
+ * @name 驗證電話號碼10碼
  */
 export function validatePhoneNumber(): ValidatorFn {
   return (c: AbstractControl) => {

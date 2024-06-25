@@ -1,19 +1,30 @@
-import { Directive, EventEmitter, Input, Output } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { fromEvent } from 'rxjs';
 
 @Directive({
-  selector: '[appScrollNearEnd]'
+  selector: '[scrollNearEnd]'
 })
 export class ScrollNearEndDirective {
   private _window!: Window;
-  @Input() threshold = 180;
+  @Input() scrollTarget: 'window' | 'element' = 'window';
+  @Input() threshold = 120;
   @Output() nearEnd: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private _el: ElementRef) { }
 
   ngOnInit(): void {
     this._window = window;
-    this._windowScroll();
+    this.scrollTarget === 'window' ? this._windowScroll() : this._elementScroll();
+  }
+
+  private _elementScroll() {
+    fromEvent(this._el.nativeElement, 'scroll').subscribe(() => {
+      const heightOfElment = this._el.nativeElement.scrollHeight;
+      const currntScrolledYOfElement = this._el.nativeElement.scrollTop;
+
+      const scrollToBottom = heightOfElment - currntScrolledYOfElement;
+      this._triggerScrollNearEnd(scrollToBottom);
+    })
   }
 
   private _windowScroll() {
@@ -23,7 +34,11 @@ export class ScrollNearEndDirective {
       const currentScrolledY = this._window.scrollY;
 
       const scrollToBottom = heightOfPage - heightOfPageNoConsole - currentScrolledY;
-      if (scrollToBottom < this.threshold) this.nearEnd.emit();
+      this._triggerScrollNearEnd(scrollToBottom);
     });
+  }
+
+  private _triggerScrollNearEnd(scrollToBottom: number) {
+    if (scrollToBottom < this.threshold) this.nearEnd.emit();
   }
 }

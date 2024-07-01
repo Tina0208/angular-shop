@@ -16,3 +16,11 @@ footer {
     @apply w-[90%] pt-[10px] text-center border-t-2 border-[theme(colors.white)];
   }
 }
+
+.login-footer {
+  @apply text-[theme(colors.purple.500)] bg-[theme(colors.white)];
+
+  p {
+    @apply border-[theme(colors.purple.500)];
+  }
+}

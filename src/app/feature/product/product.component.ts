@@ -25,11 +25,11 @@ export class ProductComponent extends Page implements OnInit {
   }
 
   ngOnInit(): void {
-    this._loadProductDate();
+    this._loadProductData();
     this.scrollToTop();
   }
 
-  private _loadProductDate() {
+  private _loadProductData() {
     this._store.dispatch(loadProducts());
     this._store.select(selectProductState).subscribe((data) => {
       this.productDisplayedList = data.slice(0, 20);

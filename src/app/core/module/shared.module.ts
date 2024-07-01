@@ -2,10 +2,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { LoginComponent } from '../../feature/login/login.component';
 import { FooterComponent } from '../component/block/footer/footer.component';
 import { MarqueeComponent } from '../component/block/marquee/marquee.component';
 import { MenuComponent } from '../component/block/menu/menu.component';
-import { BasePageComponent } from '../component/share/basePage/base-page.component';
+import { HomeBasePageComponent } from '../component/layout/homeBasePage/home-base-page.component';
+import { LoginBasePageComponent } from '../component/layout/loginBasePage/login-base-page.component';
 import { ButtonGroupComponent } from '../component/share/button/button-group.component';
 import { ButtonComponent } from '../component/share/button/button.component';
 import { CardContainerComponent } from '../component/share/card/card-container.component';
@@ -23,7 +25,7 @@ import { OutlineComponent } from '../component/share/outline/outline.component';
 import { RadioComponent } from '../component/share/radio/radio.component';
 import { StepperComponent } from '../component/share/stepper/stepper.component';
 import { ScrollNearEndDirective } from '../directive/scroll-near-end.directive';
-import { DateTimePipe } from '../pipe/dateTime/date-time.pipe';
+import { DateTimePipe } from '../pipe/date-time.pipe';
 import { MaterialModule } from './material.module';
 
 
@@ -34,7 +36,6 @@ import { MaterialModule } from './material.module';
     IconComponent,
     MarqueeComponent,
     MenuComponent,
-    BasePageComponent,
     CardComponent,
     CardContainerComponent,
     CountInputComponent,
@@ -51,7 +52,10 @@ import { MaterialModule } from './material.module';
     RadioComponent,
     CouponComponent,
     DateTimePipe,
-    ScrollNearEndDirective
+    ScrollNearEndDirective,
+    HomeBasePageComponent,
+    LoginBasePageComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +68,6 @@ import { MaterialModule } from './material.module';
     FooterComponent,
     MarqueeComponent,
     MenuComponent,
-    BasePageComponent,
     CardComponent,
     CardContainerComponent,
     CountInputComponent,
@@ -82,7 +85,9 @@ import { MaterialModule } from './material.module';
     CouponComponent,
     ReactiveFormsModule,
     DateTimePipe,
-    ScrollNearEndDirective
+    ScrollNearEndDirective,
+    HomeBasePageComponent,
+    LoginBasePageComponent
   ],
 })
 export class SharedModule { }

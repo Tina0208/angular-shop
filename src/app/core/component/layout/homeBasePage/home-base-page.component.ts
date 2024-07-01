@@ -1,11 +1,11 @@
 import { Component, ContentChild, ElementRef, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
-  selector: 'app-base-page',
-  templateUrl: './base-page.component.html',
-  styleUrls: ['./base-page.component.scss']
+  selector: 'app-home-base-page',
+  templateUrl: './home-base-page.component.html',
+  styleUrls: ['./home-base-page.component.scss']
 })
-export class BasePageComponent {
+export class HomeBasePageComponent {
   @ContentChild('buttonAction')
   buttonTemplateRef?: TemplateRef<any>;
 

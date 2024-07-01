@@ -10,3 +10,7 @@ header {
     @apply flex gap-2;
   }
 }
+
+.login-header {
+  @apply text-[theme(colors.purple.500)] bg-[theme(colors.white)];
+}

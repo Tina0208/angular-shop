@@ -20,11 +20,11 @@ export class ScrollNearEndDirective {
   private _elementScroll() {
     fromEvent(this._el.nativeElement, 'scroll').subscribe(() => {
       const heightOfElment = this._el.nativeElement.scrollHeight;
-      const currntScrolledYOfElement = this._el.nativeElement.scrollTop;
+      const currentScrolledYOfElement = this._el.nativeElement.scrollTop;
 
-      const scrollToBottom = heightOfElment - currntScrolledYOfElement;
+      const scrollToBottom = heightOfElment - currentScrolledYOfElement;
       this._triggerScrollNearEnd(scrollToBottom);
-    })
+    });
   }
 
   private _windowScroll() {

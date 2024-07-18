@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 
 import { FormGroup } from '@angular/forms';
 import { HomeBasePageComponent } from '../../component/layout/homeBasePage/home-base-page.component';
+import { Store } from '@ngrx/store';
+import { selectUserState } from '../../store/selectors/auth.selectors';
 
 
 @Component({

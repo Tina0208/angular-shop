@@ -11,7 +11,7 @@ export class CouponService {
 
   constructor(private http: HttpClient) { }
 
-  loadCoupons(): Observable<Coupon[]> {
+  loadCoupons$(): Observable<Coupon[]> {
     return this.http.get<Coupon[]>(this.couponApiUrl);
   }
 }

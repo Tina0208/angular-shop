@@ -1,0 +1,28 @@
+.login-container {
+  @apply flex justify-center items-center gap-5;
+
+  .img-container {
+    @apply max-w-[60%] h-[432px];
+
+    img {
+      @apply h-full w-full;
+    }
+  }
+
+  mat-card {
+    @apply w-fit;
+    background-color: #ffffff6e;
+
+    form {
+      @apply h-[400px] max-w-[350px] flex flex-col justify-between;
+
+      h4 {
+        @apply pb-[10px];
+      }
+
+      .input-area {
+        @apply flex flex-col gap-2;
+      }
+    }
+  }
+}

@@ -1,4 +1,21 @@
 <app-login-base-page>
+  <div class="login-container">
+    <div class="img-container">
+      <img src="assets/image/login-banner.jpg" alt="" />
+    </div>
 
-<p>hello</p>
+    <mat-card>
+      <form [formGroup]="form">
+        <div class="input-area">
+          <h4>登入</h4>
+          <p>帳號</p>
+          <app-input formControlName="user"></app-input>
+          <p>密碼</p>
+          <app-input formControlName="password"></app-input>
+        </div>
+
+        <app-button [value]="'登入'" (click)="login()"></app-button>
+      </form>
+    </mat-card>
+  </div>
 </app-login-base-page>

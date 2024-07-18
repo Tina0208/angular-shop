@@ -8,6 +8,10 @@ header {
 
   ul {
     @apply flex gap-2;
+
+    li {
+      @apply cursor-pointer;
+    }
   }
 }
 

@@ -1,0 +1,8 @@
+.base-container {
+  @apply bg-[theme(colors.yellow.100)] pb-[185px] min-h-[100vh];
+  position: relative;
+}
+
+.content-container {
+  @apply w-[90vw] mx-auto my-[30px];
+}

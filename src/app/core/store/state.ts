@@ -16,3 +16,7 @@ export interface PayState {
 export interface CouponState {
   couponItems: Coupon[];
 }
+
+export interface UserState {
+  token: string | null;
+}

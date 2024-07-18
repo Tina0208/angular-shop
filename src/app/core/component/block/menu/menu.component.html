@@ -4,12 +4,15 @@
     Shop
   </h1>
 
-  <ul>
+  <ul *ngIf="pageType === 'home'">
     <li routerLinkActive="router-link-active">
       <a [routerLink]="['/cart']">購物車</a>
     </li>
     <li>
-      <a [routerLink]="['/login']">登入</a>
+      <ng-container [ngSwitch]="logined">
+        <a *ngSwitchCase="false" [routerLink]="['/login']">登入</a>
+        <a *ngSwitchCase="true" (click)="logout()">登出</a>
+      </ng-container>
     </li>
   </ul>
 </header>

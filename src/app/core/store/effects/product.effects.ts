@@ -11,7 +11,7 @@ export class ProductEffects {
     return this._actions$.pipe(
       ofType(ProductActions.loadProducts),
       concatMap(() =>
-        this._productService.loadProducts().pipe(
+        this._productService.loadProducts$().pipe(
           map((data) => ProductActions.loadProductsSuccess({ productItems: data })),
           catchError((error) => of(ProductActions.loadProductsFailure({ error: '商品資訊讀取失敗' }))))
       )

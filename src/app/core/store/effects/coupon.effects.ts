@@ -11,7 +11,7 @@ export class CouponEffects {
   loadCoupons$ = createEffect(() => {
     return this._actions$.pipe(
       ofType(CouponActions.loadCoupons),
-      concatMap(() => this._couponService.loadCoupons().pipe(
+      concatMap(() => this._couponService.loadCoupons$().pipe(
         map((data) => CouponActions.loadCouponsSuccess({ couponItems: data })),
         catchError((_) => of(CouponActions.loadCouponsFailure({error: '優惠券讀取失敗'})))
       ))

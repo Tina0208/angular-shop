@@ -11,8 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { appConfig } from './app.config';
 import { SharedModule } from './core/module/shared.module';
+import { AuthEffects } from './core/store/effects/auth.effects';
 import { CouponEffects } from './core/store/effects/coupon.effects';
 import { ProductEffects } from './core/store/effects/product.effects';
+import { authFeatureKey, authReducer } from './core/store/reducers/auth.reducer';
 import { cartFeatureKey, cartReducer } from './core/store/reducers/cart.reducer';
 import { couponFeatureKey, couponReducer } from './core/store/reducers/coupon.reducer';
 import { payFeatureKey, payReducer } from './core/store/reducers/pay.reducer';
@@ -33,9 +35,10 @@ import { productFeatureKey, productReducer } from './core/store/reducers/product
       [productFeatureKey]: productReducer,
       [cartFeatureKey]: cartReducer,
       [payFeatureKey]: payReducer,
-      [couponFeatureKey]: couponReducer
+      [couponFeatureKey]: couponReducer,
+      [authFeatureKey]: authReducer
     }, {}),
-    EffectsModule.forRoot([ProductEffects, CouponEffects])
+    EffectsModule.forRoot([ProductEffects, CouponEffects, AuthEffects])
   ],
   exports: [
   ],

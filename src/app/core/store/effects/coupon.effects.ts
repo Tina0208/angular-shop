@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, concatMap, switchMap } from 'rxjs/operators';
-import { Observable, EMPTY, of } from 'rxjs';
-import * as CouponActions from '../actions/coupon.actions';
+import { of } from 'rxjs';
+import { catchError, concatMap, map } from 'rxjs/operators';
 import { CouponService } from '../../api/coupon.service';
+import * as CouponActions from '../actions/coupon.actions';
 
 
 @Injectable()

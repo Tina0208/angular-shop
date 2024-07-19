@@ -27,6 +27,7 @@ import { StepperComponent } from '../component/share/stepper/stepper.component';
 import { ScrollNearEndDirective } from '../directive/scroll-near-end.directive';
 import { DateTimePipe } from '../pipe/date-time.pipe';
 import { MaterialModule } from './material.module';
+import { SnackbarComponent } from '../component/share/snackbar/snackbar.component';
 
 
 
@@ -55,7 +56,8 @@ import { MaterialModule } from './material.module';
     ScrollNearEndDirective,
     HomeBasePageComponent,
     LoginBasePageComponent,
-    LoginComponent
+    LoginComponent,
+    SnackbarComponent
   ],
   imports: [
     CommonModule,

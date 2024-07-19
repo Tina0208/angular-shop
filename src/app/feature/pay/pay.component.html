@@ -30,16 +30,16 @@
         <app-outline [label]="'付款費用'">
           <mat-list>
             <app-list [label]="'運費'"
-              ><p>${{ totalDeliveryFee }}</p></app-list
+              ><p>${{ totalDeliveryFee | number}}</p></app-list
             >
             <app-list [label]="'商品費'"
-              ><p>${{ totalPrice }}</p></app-list
+              ><p>${{ totalPrice | number}}</p></app-list
             >
             <app-list [label]="'商品數量'"
-              ><p>{{ totalProductCount }}</p></app-list
+              ><p>{{ totalProductCount | number}}</p></app-list
             >
             <app-list [label]="'總計'"
-              ><p>${{ totalPrice + totalDeliveryFee }}</p></app-list
+              ><p>${{ totalPrice + totalDeliveryFee | number}}</p></app-list
             >
           </mat-list>
         </app-outline>
@@ -126,11 +126,11 @@
             ><p>{{ today | dateTime }}</p></app-list
           >
           <app-list [label]="'訂單金額'"
-            ><p>${{ totalPrice + totalDeliveryFee }}</p></app-list
+            ><p>${{ totalPrice + totalDeliveryFee | number}}</p></app-list
           >
           <app-list [label]="'訂單商品'">
             <ng-container *ngFor="let item of payList">
-              <p>{{ item.productName }} x {{ item.productCartCount }} /</p>
+              <p>{{ item.productName }} x {{ item.productCartCount | number}} /</p>
             </ng-container>
           </app-list>
           <app-list [label]="'收件人姓名'"
@@ -155,6 +155,7 @@
             formControlName="coupon"
             [radioButton]="{ name: 'coupon', value: coupon.couponId }"
             (click)="selectCoupon(coupon)"
+            [disabled]="!couponUsable(coupon)"
           ></app-radio>
           <app-coupon [coupon]="coupon"></app-coupon>
         </div>

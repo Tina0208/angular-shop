@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
-import { Product } from 'src/app/core/model/type/interface';
+import { Pay, Product } from 'src/app/core/model/type/interface';
 
 @Component({
   selector: 'app-card',
@@ -13,6 +13,7 @@ export class CardComponent implements OnInit {
   imageSrc: string = 'assets/image/loading.png';
   @Input() product: Product = {} as Product;
   @Output() addCart = new EventEmitter<{ productId: string, count: number }>();
+  @Output() buy = new EventEmitter<{ buyProduct: Pay, count: number }>();
   form = this._formBuilder.group({
     count: new FormControl('1')
   })
@@ -35,5 +36,10 @@ export class CardComponent implements OnInit {
 
   onAddCart(productId: string, count: number) {
     this.addCart.emit({ productId, count });
+  }
+
+  onBuy(product: Product, count: number) {
+    const buyProduct = ({...product, productCartCount: count});
+    this.buy.emit({ buyProduct, count });
   }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { filter } from 'rxjs';
+import { ProductService } from 'src/app/core/api/product.service';
 import { StepperComponent } from 'src/app/core/component/share/stepper/stepper.component';
 import { Page } from 'src/app/core/model/class/page.component';
 import { Coupon, Pay } from 'src/app/core/model/type/interface';
@@ -28,18 +30,19 @@ export class PayComponent extends Page implements OnInit {
       return total + current.productCartCount;
     }, 0)
   };
-  get totalPrice() {
-    const initPrice = this.payList.reduce((total, current) => {
+  get initPrice() {
+    return this.payList.reduce((total, current) => {
       return total + current.productCartCount * current.productPrice;
     }, 0);
-
+  };
+  get totalPrice() {
     switch (this.coupounSelected.couponType) {
       case 'discount':
-        return initPrice * this.coupounSelected.discount!
+        return this.initPrice * this.coupounSelected.discount!
       case 'price-off':
-        return initPrice - this.coupounSelected.priceOff!
+        return this.initPrice - this.coupounSelected.priceOff!
       default:
-        return initPrice;
+        return this.initPrice;
     }
   };
   get totalDeliveryFee() {
@@ -68,9 +71,11 @@ export class PayComponent extends Page implements OnInit {
 
   constructor(
     private _store: Store,
-    private _alertService: AlertService
+    private _alertService: AlertService,
+    private _productService: ProductService,
+    public override _snackBar: MatSnackBar
   ) {
-    super();
+    super(_snackBar);
   }
 
   ngOnInit(): void {
@@ -120,6 +125,7 @@ export class PayComponent extends Page implements OnInit {
     ).subscribe(() => {
       const productsId = this.payList.map((item) => item.productId);
       this._store.dispatch(buy({ id: productsId }));
+      this._productService.updateProducts$(this.payList).subscribe();
       this.nextPage();
     });
   }
@@ -129,6 +135,19 @@ export class PayComponent extends Page implements OnInit {
       this.receiverForm.patchValue(this.buyerForm.value);
     } else {
       this.receiverForm.reset();
+    }
+  }
+
+  couponUsable(coupon: Coupon) {
+    switch (coupon.couponType) {
+      case 'delivery-free':
+        return this.initPrice >= coupon.limit;
+      case 'discount':
+        return this.totalProductCount >= coupon.limit;
+      case 'price-off':
+        return this.initPrice >= coupon.limit;
+      default:
+        return false;
     }
   }
 }

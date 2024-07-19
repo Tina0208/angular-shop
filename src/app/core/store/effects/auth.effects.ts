@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { EMPTY, of } from 'rxjs';
-import { catchError, concatMap, map, tap } from 'rxjs/operators';
-import * as AuthActions from '../actions/auth.actions';
+import { of } from 'rxjs';
+import { catchError, concatMap, map } from 'rxjs/operators';
 import { v4 as uuidv4 } from 'uuid';
+import * as AuthActions from '../actions/auth.actions';
 
 
 @Injectable()
 export class AuthEffects {
-
   loadAuths$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(AuthActions.login),

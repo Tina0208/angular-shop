@@ -1,9 +1,5 @@
 <mat-card>
-  <img
-    mat-card-image
-    src="{{ imageSrc }}"
-    alt="Photo of a Shiba Inu"
-  />
+  <img mat-card-image src="{{ imageSrc }}" alt="Photo of a Shiba Inu" />
   <mat-card-title>
     <div class="title-wrap">
       <h4>{{ product.productName }}</h4>
@@ -30,7 +26,10 @@
         [appearance]="'outline'"
         (click)="onAddCart(product.productId, +form.value.count!)"
       ></app-button>
-      <app-button [value]="'直接購買'"></app-button>
+      <app-button
+        [value]="'直接購買'"
+        (click)="onBuy(product, +form.value.count!)"
+      ></app-button>
     </app-button-group>
   </mat-card-actions>
 </mat-card>

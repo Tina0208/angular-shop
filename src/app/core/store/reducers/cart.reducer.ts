@@ -1,8 +1,8 @@
-import { Action, createReducer, on } from '@ngrx/store';
-import * as CartActions from '../actions/cart.actions';
-import { Cart } from '../../model/type/interface';
-import { CartState } from '../state';
+import { createReducer, on } from '@ngrx/store';
 import * as _ from 'lodash';
+import { Cart } from '../../model/type/interface';
+import * as CartActions from '../actions/cart.actions';
+import { CartState } from '../state';
 
 export const cartFeatureKey = 'cart';
 export const initialState: CartState = {

@@ -3,9 +3,13 @@
     <img src="assets/image/banner.webp" alt="banner" />
   </div>
 
-  <app-card-container  scrollNearEnd (nearEnd)="lazyRender()">
+  <app-card-container scrollNearEnd (nearEnd)="lazyRender()">
     <ng-container *ngFor="let product of productDisplayedList">
-      <app-card [product]="product" (addCart)="addCart($event)"></app-card>
+      <app-card
+        [product]="product"
+        (addCart)="addCart($event)"
+        (buy)="buy($event)"
+      ></app-card>
     </ng-container>
   </app-card-container>
 </app-home-base-page>

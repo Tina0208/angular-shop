@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Page } from 'src/app/core/model/class/page.component';
@@ -14,15 +15,16 @@ import { required } from 'src/app/core/util/validator.service';
 })
 export class LoginComponent extends Page implements OnInit {
   form: FormGroup = new FormGroup({
-    user: new FormControl('', [required()]),
-    password: new FormControl('', [required()]),
+    user: new FormControl('user', [required()]),
+    password: new FormControl('12345678', [required()]),
   });
 
   constructor(
     private _store: Store,
     private _router: Router,
+    public override _snackBar: MatSnackBar
   ) {
-    super();
+    super(_snackBar);
   }
 
   ngOnInit(): void {

@@ -15,8 +15,4 @@ export const productReducer = createReducer(
     ...state,
     ...action
   })),
-  on(ProductActions.updateProduct, (state, action) => ({
-    ...state,
-    ...action
-  })),
 );

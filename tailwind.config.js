@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     colors: {
       white: "#FFFFFF",
-      purple: {
+      orange: {
         500: "#f7a072",
       },
       yellow: {
@@ -14,7 +14,7 @@ module.exports = {
       gray: {
         100: "#ccc",
       },
-      orange: {
+      green: {
         500: "#0fa3b1",
       },
       red: {
@@ -57,13 +57,13 @@ module.exports = {
           fontWeight: "var(--cuz-h6-font-weight)",
         },
         ".text-color-green": {
-          color: "theme(colors.orange.500)",
+          color: "theme(colors.green.500)",
         },
         ".bg-color-green": {
-          background: "theme(colors.orange.500)",
+          background: "theme(colors.green.500)",
         },
         ".border-green": {
-          border: "3px solid theme(colors.orange.500)",
+          border: "3px solid theme(colors.green.500)",
         },
         ".bg-color-transparent": {
           background: "#ffffff8a",

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
@@ -46,7 +47,10 @@ export class ShopCartComponent extends Page implements OnInit {
     private _formBuilder: FormBuilder,
     private _router: Router,
     private _alertService: AlertService,
-  ) { super() }
+    public override _snackBar: MatSnackBar
+  ) {
+    super(_snackBar);
+  }
 
   ngOnInit(): void {
     this._loadCartData();
@@ -94,7 +98,7 @@ export class ShopCartComponent extends Page implements OnInit {
 
   toggleAllChecked() {
     this.cartsFormControls.controls.forEach((control) => {
-      control.get('checked')?.setValue(this.allProductChecked ? false : true)
+      control.get('checked')?.setValue(this.form.value.allChecked ? true : false)
     });
   }
 

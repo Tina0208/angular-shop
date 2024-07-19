@@ -1,7 +1,21 @@
-# ShopProject
+## 環境設定
+- 使用Angular14
+- 使用node18以上版本
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+## 在本地端運行專案
+STEP１．下載專案<br>
 
-## Running project in local
+    git clone https://github.com/Tina0208/shop.git
+    
+STEP２．安裝node module
+  
+    npm i
+  
+STEP３．在本地端運行資料庫
+  
+    npm run jsonServer
+  
+STEP４．運行專案
+  
+    npm start
 
-Run `npm run jsonServer` and then turn on another cmd run `npm start`.

@@ -15,7 +15,7 @@ STEP３．在本地端運行資料庫
   
     npm run jsonServer
   
-STEP４．運行專案
+STEP４．運行專案(另開TERMINAL)
   
     npm start
 

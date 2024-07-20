@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { filter } from 'rxjs';
 import { ProductService } from 'src/app/core/api/product.service';
-import { StepperComponent } from 'src/app/core/component/share/stepper/stepper.component';
 import { Page } from 'src/app/core/model/class/page.component';
 import { Coupon, Pay } from 'src/app/core/model/type/interface';
 import { AlertService } from 'src/app/core/service/alert.service';
@@ -66,8 +65,6 @@ export class PayComponent extends Page implements OnInit {
   couponForm: FormGroup = new FormGroup({
     coupon: new FormControl('')
   });
-  @ViewChild(StepperComponent)
-  stepper?: StepperComponent;
 
   constructor(
     private _store: Store,
@@ -97,9 +94,10 @@ export class PayComponent extends Page implements OnInit {
   }
 
   private _scrollToStepper() {
-    this.stepper?.elementRef.nativeElement.scrollIntoView({
+    window.scrollTo({
+      top: 74,
       behavior: 'smooth'
-    });
+  });
   }
 
   selectCoupon(coupon: Coupon) {

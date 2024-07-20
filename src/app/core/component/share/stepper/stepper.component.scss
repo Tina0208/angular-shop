@@ -8,6 +8,10 @@
   @apply bg-[theme(colors.yellow.500)];
 }
 
-::ng-deep .mat-horizontal-stepper-header .mat-step-icon {
-  @apply w-[30px] h-[30px];
+::ng-deep .mat-horizontal-stepper-header  {
+  @apply pointer-events-none;
+
+  .mat-step-icon {
+    @apply w-[30px] h-[30px];
+  }
 }

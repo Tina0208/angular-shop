@@ -5,7 +5,7 @@ import {
   Input,
   OnInit,
   Output,
-  forwardRef
+  forwardRef,
 } from '@angular/core';
 import {
   ControlValueAccessor,
@@ -34,7 +34,7 @@ export class CountInputComponent implements OnInit, ControlValueAccessor {
   @Output() countInput = new EventEmitter<any>();
 
   constructor(
-    private injector: Injector,
+    private _injector: Injector,
     private _alertService: AlertService
   ) {}
 
@@ -51,7 +51,7 @@ export class CountInputComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit(): void {
-    this.ngControl = this.injector.get(NgControl);
+    this.ngControl = this._injector.get(NgControl);
   }
 
   private _inputCount() {
@@ -107,6 +107,7 @@ export class CountInputComponent implements OnInit, ControlValueAccessor {
         '未輸入或是輸入的數量超過商品總數',
         'alert'
       );
+      return;
     }
 
     this._inputCount();

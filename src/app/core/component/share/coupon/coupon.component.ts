@@ -6,12 +6,8 @@ import { Coupon } from 'src/app/core/model/type/interface';
   templateUrl: './coupon.component.html',
   styleUrls: ['./coupon.component.scss']
 })
-export class CouponComponent implements OnInit {
+export class CouponComponent {
   @Input() coupon: Coupon = {} as Coupon;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

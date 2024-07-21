@@ -20,7 +20,7 @@ export class ProductService {
     return this.http.get<Product[]>(this.productApiUrl);
   }
 
-  updateProducts$(productsBought: Pay[]): Observable<any[]> {
+  updateProducts$(productsBought: Pay[]): Observable<Product[]> {
     const buyListIds = productsBought.map(buyProduct => buyProduct.productId);
 
     return this._store.select(selectProductState).pipe(
@@ -34,7 +34,7 @@ export class ProductService {
           }))
       )),
       switchMap((product) =>
-        this.http.put<any[]>(`${this.productApiUrl}/${product.productId}`, product))
+        this.http.put<Product[]>(`${this.productApiUrl}/${product.productId}`, product))
     );
   }
 }

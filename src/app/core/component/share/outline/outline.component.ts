@@ -1,15 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-outline',
   templateUrl: './outline.component.html',
   styleUrls: ['./outline.component.scss']
 })
-export class OutlineComponent implements OnInit {
+export class OutlineComponent {
   @Input() label: string = '';
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 }

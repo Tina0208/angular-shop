@@ -30,11 +30,11 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   }
 
   constructor(
-    private injector: Injector,
+    private _injector: Injector,
   ) { }
 
   ngOnInit(): void {
-    this.ngControl = this.injector.get(NgControl);
+    this.ngControl = this._injector.get(NgControl);
   }
 
   writeValue(value: string) {

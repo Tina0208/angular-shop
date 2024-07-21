@@ -21,7 +21,7 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   ngControl!: NgControl;
 
   constructor(
-    private injector: Injector,
+    private _injector: Injector,
   ) { }
 
   set content(value: boolean) {
@@ -32,7 +32,7 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit(): void {
-    this.ngControl = this.injector.get(NgControl);
+    this.ngControl = this._injector.get(NgControl);
   }
 
   writeValue(value: boolean) {

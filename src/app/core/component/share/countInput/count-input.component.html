@@ -1,7 +1,7 @@
 <div class="input-wrap">
   <app-icon [iconName]="'minus'" (click)="minusProduct()"></app-icon>
   <input
-    type="text"
+    type="number"
     [(ngModel)]="content"
     (ngModelChange)="contentChanged()"
     (blur)="blur()"

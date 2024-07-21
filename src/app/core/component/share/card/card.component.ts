@@ -12,24 +12,24 @@ export class CardComponent implements OnInit {
   countInput: number = 1;
   imageSrc: string = 'assets/image/loading.png';
   @Input() product: Product = {} as Product;
-  @Output() addCart = new EventEmitter<{ productId: string, count: number }>();
-  @Output() buy = new EventEmitter<{ buyProduct: Pay, count: number }>();
+  @Output() addCart = new EventEmitter<{ productId: string; count: number }>();
+  @Output() buy = new EventEmitter<{ buyProduct: Pay; count: number }>();
   form = this._formBuilder.group({
-    count: new FormControl('1')
-  })
+    count: new FormControl('1'),
+  });
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this._loadImageFromCDN();
   }
 
-  private _loadImageFromCDN(){
+  private _loadImageFromCDN() {
     const cdnImageUrl = this.product.productImage;
     const productImage = new Image();
     productImage.src = cdnImageUrl;
 
-    fromEvent(productImage,'load').subscribe(() => {
+    fromEvent(productImage, 'load').subscribe(() => {
       this.imageSrc = productImage.src;
     });
   }
@@ -39,7 +39,7 @@ export class CardComponent implements OnInit {
   }
 
   onBuy(product: Product, count: number) {
-    const buyProduct = ({...product, productCartCount: count});
+    const buyProduct = { ...product, productCartCount: count };
     this.buy.emit({ buyProduct, count });
   }
 }

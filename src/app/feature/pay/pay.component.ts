@@ -97,7 +97,7 @@ export class PayComponent extends Page implements OnInit {
     window.scrollTo({
       top: 74,
       behavior: 'smooth'
-  });
+    });
   }
 
   selectCoupon(coupon: Coupon) {

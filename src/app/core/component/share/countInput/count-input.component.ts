@@ -1,20 +1,30 @@
-import { Component, EventEmitter, Injector, Input, OnInit, Output, SimpleChanges, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../dialog/dialog.component';
+import {
+  Component,
+  EventEmitter,
+  Injector,
+  Input,
+  OnInit,
+  Output,
+  forwardRef
+} from '@angular/core';
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  NgControl,
+} from '@angular/forms';
 import { AlertService } from 'src/app/core/service/alert.service';
 
 const COUNTINPUT_CONTROL_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => CountInputComponent),
-  multi: true
-}
+  multi: true,
+};
 
 @Component({
   selector: 'app-count-input',
   templateUrl: './count-input.component.html',
   styleUrls: ['./count-input.component.scss'],
-  providers: [COUNTINPUT_CONTROL_VALUE_ACCESSOR]
+  providers: [COUNTINPUT_CONTROL_VALUE_ACCESSOR],
 })
 export class CountInputComponent implements OnInit, ControlValueAccessor {
   private _count: number = 1;
@@ -26,7 +36,7 @@ export class CountInputComponent implements OnInit, ControlValueAccessor {
   constructor(
     private injector: Injector,
     private _alertService: AlertService
-  ) { }
+  ) {}
 
   @Input() disabled: boolean = false;
   onChange!: (value: any) => {};
@@ -35,7 +45,7 @@ export class CountInputComponent implements OnInit, ControlValueAccessor {
 
   set content(value: number) {
     this._count = value;
-  };
+  }
   get content() {
     return this._count;
   }
@@ -90,13 +100,14 @@ export class CountInputComponent implements OnInit, ControlValueAccessor {
   }
 
   blur() {
-    if (this._count > this.restProduct || !this._count) {
+    if (this._count > this.restProduct || !this._count || this._count < 1) {
       this._count = 1;
       this._alertService.alert(
         '輸入錯誤',
-        '未輸入或是輸入的數量超過商品總數', 'alert'
-      )
-    };
+        '未輸入或是輸入的數量超過商品總數',
+        'alert'
+      );
+    }
 
     this._inputCount();
   }

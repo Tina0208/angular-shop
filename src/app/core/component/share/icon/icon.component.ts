@@ -1,13 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-icon',
   templateUrl: './icon.component.html',
-  styleUrls: ['./icon.component.scss']
+  styleUrls: ['./icon.component.scss'],
+  host: {
+    '[style.width]': 'this.size',
+    '[style.height]': 'this.size',
+    '[class.cursor-pointer]': 'true',
+    '[class.inline-block]': 'true'
+  }
 })
 export class IconComponent {
   @Input() iconName: string = '';
-  @Input() size: string = '16';
+  @Input() size: string = '24px';
 
   constructor() { }
 }

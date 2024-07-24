@@ -19,8 +19,8 @@ const RADIO_CONTROL_VALUE_ACCESSOR = {
   }
 })
 export class RadioComponent implements OnInit, ControlValueAccessor {
-  @Input() name: string = '';
   private _content: string = '';
+  @Input() name: string = '';
   @Input() disabled: boolean = false;
   @Input() placeholder: string = '';
   @Input() radioButton: RadioButton = {} as RadioButton;

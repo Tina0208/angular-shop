@@ -13,6 +13,10 @@ import { selectUserState } from 'src/app/core/store/selectors/auth.selectors';
 })
 export class MenuComponent implements OnInit {
   logined: boolean = false;
+  /**
+   * 頁面類型(登入頁 OR 登入後頁)
+   * @type {'login' | 'home'}
+   */
   @Input() pageType: 'login' | 'home' = 'home';
 
   constructor(

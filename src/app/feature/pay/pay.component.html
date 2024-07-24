@@ -30,16 +30,16 @@
         <app-outline [label]="'付款費用'">
           <mat-list>
             <app-list [label]="'運費'"
-              ><p>${{ totalDeliveryFee | number}}</p></app-list
+              ><p>${{ totalDeliveryFee | number }}</p></app-list
             >
             <app-list [label]="'商品費'"
-              ><p>${{ totalPrice | number}}</p></app-list
+              ><p>${{ totalPrice | number }}</p></app-list
             >
             <app-list [label]="'商品數量'"
-              ><p>{{ totalProductCount | number}}</p></app-list
+              ><p>{{ totalProductCount | number }}</p></app-list
             >
             <app-list [label]="'總計'"
-              ><p>${{ totalPrice + totalDeliveryFee | number}}</p></app-list
+              ><p>${{ totalPrice + totalDeliveryFee | number }}</p></app-list
             >
           </mat-list>
         </app-outline>
@@ -121,27 +121,34 @@
     <ng-container *ngSwitchCase="2">
       <app-outline [label]="'訂單明細'">
         <mat-list>
-          <app-list [label]="'訂單編號'"><p>12345678</p></app-list>
-          <app-list [label]="'訂單時間'"
-            ><p>{{ today | dateTime }}</p></app-list
-          >
-          <app-list [label]="'訂單金額'"
-            ><p>${{ totalPrice + totalDeliveryFee | number}}</p></app-list
-          >
+          <app-list [label]="'訂單編號'" [contentText]="'12345678'"></app-list>
+          <app-list
+            [label]="'訂單時間'"
+            [contentText]="today | dateTime"
+          ></app-list>
+          <app-list
+            [label]="'訂單金額'"
+            [contentText]="'$' + (totalPrice + totalDeliveryFee | number)"
+          ></app-list>
           <app-list [label]="'訂單商品'">
             <ng-container *ngFor="let item of payList">
-              <p>{{ item.productName }} x {{ item.productCartCount | number}} /</p>
+              <p>
+                {{ item.productName }} x {{ item.productCartCount | number }} /
+              </p>
             </ng-container>
           </app-list>
-          <app-list [label]="'收件人姓名'"
-            ><p>{{ receiverForm.value.name }}</p></app-list
-          >
-          <app-list [label]="'收件人手機'"
-            ><p>{{ receiverForm.value.phone }}</p></app-list
-          >
-          <app-list [label]="'收件地址'"
-            ><p>{{ receiverForm.value.address }}</p></app-list
-          >
+          <app-list
+            [label]="'收件人姓名'"
+            [contentText]="receiverForm.value.name"
+          ></app-list>
+          <app-list
+            [label]="'收件人手機'"
+            [contentText]="receiverForm.value.phone"
+          ></app-list>
+          <app-list
+            [label]="'收件地址'"
+            [contentText]="receiverForm.value.address"
+          ></app-list>
         </mat-list>
       </app-outline>
     </ng-container>

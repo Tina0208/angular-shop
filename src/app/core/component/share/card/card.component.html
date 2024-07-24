@@ -2,13 +2,13 @@
   <img mat-card-image src="{{ imageSrc }}" alt="Photo of a product" />
   <mat-card-title>
     <div class="title-wrap">
-      <h4>{{ product.productName }}</h4>
+      <h2>{{ product.productName }}</h2>
       <h3>${{ product.productPrice }}</h3>
     </div>
   </mat-card-title>
 
   <mat-card-content>
-    <p class="prodct-description">{{ product.productDescription }}</p>
+    <h6 class="prodct-description">{{ product.productDescription }}</h6>
     <form [formGroup]="form">
       <app-count-input
         #countInput

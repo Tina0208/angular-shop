@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Page } from 'src/app/core/model/class/page.component';
@@ -22,9 +21,8 @@ export class LoginComponent extends Page implements OnInit {
   constructor(
     private _store: Store,
     private _router: Router,
-    public override _snackBar: MatSnackBar
   ) {
-    super(_snackBar);
+    super();
   }
 
   ngOnInit(): void {

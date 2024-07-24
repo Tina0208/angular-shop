@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { filter } from 'rxjs';
 import { ProductService } from 'src/app/core/api/product.service';
@@ -70,9 +69,8 @@ export class PayComponent extends Page implements OnInit {
     private _store: Store,
     private _alertService: AlertService,
     private _productService: ProductService,
-    public override _snackBar: MatSnackBar
   ) {
-    super(_snackBar);
+    super();
   }
 
   ngOnInit(): void {

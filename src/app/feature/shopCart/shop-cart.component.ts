@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
@@ -47,9 +46,8 @@ export class ShopCartComponent extends Page implements OnInit {
     private _formBuilder: FormBuilder,
     private _router: Router,
     private _alertService: AlertService,
-    public override _snackBar: MatSnackBar
   ) {
-    super(_snackBar);
+    super();
   }
 
   ngOnInit(): void {

@@ -1,9 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-
 import { FormGroup } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { HomeBasePageComponent } from '../../component/layout/homeBasePage/home-base-page.component';
-import { SnackbarComponent } from '../../component/share/snackbar/snackbar.component';
 
 
 @Component({
@@ -16,7 +13,7 @@ export class Page {
     return this.basePage?.elementRef.nativeElement.querySelector('.ng-invalid') as HTMLElement;
   }
 
-  constructor(public _snackBar: MatSnackBar) { }
+  constructor() { }
 
   validateForm(forms: FormGroup[]) {
     const invalidForm = forms.find(form => form.invalid);
@@ -41,12 +38,5 @@ export class Page {
 
   scrollToTop() {
     window.scrollTo(0, 0);
-  }
-
-  openSnackBar(content: string, durationInSeconds: number) {
-    this._snackBar.openFromComponent(SnackbarComponent, {
-      duration: durationInSeconds * 1000,
-      data: content
-    });
   }
 }

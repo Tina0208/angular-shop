@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, switchMap, take } from 'rxjs/operators';
 import { Page } from 'src/app/core/model/class/page.component';
 import { Pay, Product } from 'src/app/core/model/type/interface';
+import { AlertService } from 'src/app/core/service/alert.service';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { addCart } from 'src/app/core/store/actions/cart.actions';
 import { loadPayData } from 'src/app/core/store/actions/pay.actions';
@@ -27,9 +27,9 @@ export class ProductComponent extends Page implements OnInit {
     private _store: Store,
     private _authService: AuthService,
     private _router: Router,
-    public override _snackBar: MatSnackBar,
+    private _alertService: AlertService
   ) {
-    super(_snackBar);
+    super();
   }
 
   ngOnInit(): void {
@@ -65,7 +65,7 @@ export class ProductComponent extends Page implements OnInit {
         productCartCount: count
       }));
 
-      this.openSnackBar('商品已加入購物車!', 2);
+      this._alertService.snackBar('商品已加入購物車!', 2);
     });
   }
 

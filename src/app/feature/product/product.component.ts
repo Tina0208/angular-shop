@@ -45,7 +45,7 @@ export class ProductComponent extends Page implements OnInit {
     });
   }
 
-  private _userLoginedAndProductEnough({ productId, count }: { productId: string, count: number }): Observable<boolean> {
+  private _userLoginedAndProductEnough$({ productId, count }: { productId: string, count: number }): Observable<boolean> {
     const userLogined$ = this._authService.userLogined$();
     const isProductEnough$ = this._store.select(isProductEnough(productId, count));
 
@@ -58,7 +58,7 @@ export class ProductComponent extends Page implements OnInit {
   }
 
   addCart({ productId, count }: { productId: string, count: number }) {
-    this._userLoginedAndProductEnough({ productId, count }).subscribe(() => {
+    this._userLoginedAndProductEnough$({ productId, count }).subscribe(() => {
       const addedProduct = this.productList.find((product) => product.productId === productId)!;
       this._store.dispatch(addCart({
         ...addedProduct,
@@ -70,7 +70,7 @@ export class ProductComponent extends Page implements OnInit {
   }
 
   buy({ buyProduct, count }: { buyProduct: Pay, count: number }) {
-    this._userLoginedAndProductEnough({ productId: buyProduct.productId, count }).subscribe(() => {
+    this._userLoginedAndProductEnough$({ productId: buyProduct.productId, count }).subscribe(() => {
       this._store.dispatch(loadPayData({ payItems: [buyProduct] }));
       this._router.navigate(['/pay']);
     });

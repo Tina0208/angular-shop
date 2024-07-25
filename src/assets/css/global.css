@@ -1,17 +1,19 @@
-/* input隱藏上下箭頭 Chrome, Safari, Edge, Opera*/
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+@layer components {
+  /* input隱藏上下箭頭 Chrome, Safari, Edge, Opera*/
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
-/* input隱藏上下箭頭 Firefox*/
-input[type="number"] {
-  -moz-appearance: textfield;
-}
+  /* input隱藏上下箭頭 Firefox*/
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
 
-/* 錯誤訊息 */
-.error-message {
-  @apply text-[theme(colors.red.500)] mt-[2px];
-  font-weight: 600;
+  /* 錯誤訊息 */
+  .error-message {
+    @apply text-[theme(colors.red.500)] mt-[2px];
+    font-weight: 600;
+  }
 }

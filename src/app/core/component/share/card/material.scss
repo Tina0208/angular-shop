@@ -1,0 +1,17 @@
+.mat-card-image,
+.mat-card-image:first-child {
+  margin: 0 0 16px 0;
+}
+
+.mat-card {
+  @apply bg-[#ffffff6e];
+
+  .mat-card-actions:last-child {
+    margin-bottom: unset;
+    padding-bottom: unset;
+  }
+}
+
+.mat-card-actions {
+  padding: unset;
+}

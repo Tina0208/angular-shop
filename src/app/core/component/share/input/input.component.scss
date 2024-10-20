@@ -1,5 +1,10 @@
 input {
-  @apply w-[250px] h-[26px] p-[16px] rounded;
+  @apply 
+  w-[250px] 
+  h-[26px] 
+  p-[16px] 
+  rounded 
+  bg-[#ffffff6e];
+  
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff6e;
 }

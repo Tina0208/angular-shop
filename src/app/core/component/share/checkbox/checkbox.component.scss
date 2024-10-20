@@ -1,16 +1,34 @@
 input[type="checkbox"] {
-  @apply invisible w-[24px] h-[24px] align-text-bottom;
-  cursor: pointer;
+  @apply 
+  invisible 
+  w-[24px] 
+  h-[24px] 
+  align-text-bottom 
+  cursor-pointer;
 }
 
 input[type="checkbox"]::after {
-  @apply visible w-full h-full rounded border-[3px] border-[theme(colors.gray.100)] inline-block;
+  @apply 
+  visible 
+  w-full 
+  h-full 
+  rounded 
+  border-[3px] 
+  border-[theme(colors.gray.100)] 
+  inline-block;
+
   content: " ";
   background-color: transparent;
 }
 
 input[type="checkbox"]:checked::after {
-  @apply flex justify-center items-center bg-[theme(colors.yellow.500)] border-[theme(colors.yellow.500)];
+  @apply 
+  flex 
+  justify-center 
+  items-center
+  bg-[theme(colors.yellow.500)] 
+  border-[theme(colors.yellow.500)] 
+  font-bold;
+  
   content: "∨";
-  font-weight: bold;
 }

@@ -1,5 +1,15 @@
 header {
-  @apply flex justify-between items-center py-[15px] px-[20px] bg-[theme(colors.orange.500)] text-[theme(colors.white)] sticky top-0;
+  @apply 
+  flex 
+  justify-between 
+  items-center 
+  py-[15px] 
+  px-[20px] 
+  bg-[theme(colors.orange.500)] 
+  text-[theme(colors.white)] 
+  sticky 
+  top-0;
+
   z-index: 99;
 
   h1 {
@@ -16,5 +26,7 @@ header {
 }
 
 .login-header {
-  @apply text-[theme(colors.orange.500)] bg-[theme(colors.white)];
+  @apply 
+  text-[theme(colors.orange.500)] 
+  bg-[theme(colors.white)];
 }

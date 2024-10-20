@@ -1,4 +1,17 @@
+@import url("../../../../../assets/css/base-page.css");
+
 .button-container {
-  @apply mt-[20px] w-full fixed bottom-0 left-0 bg-[#bebebe87] h-[100px] flex items-center justify-center;
+  @apply 
+  mt-[20px]
+  w-full 
+  fixed 
+  bottom-0 
+  left-0 
+  bg-[#bebebe87] 
+  h-[100px] 
+  flex 
+  items-center 
+  justify-center;
+  
   z-index: 99;
 }

@@ -1,11 +1,15 @@
 section {
-  @apply py-[10px] bg-[theme(colors.yellow.500)];
-  width: 100%;
-  overflow: hidden;
+  @apply 
+  py-[10px] 
+  bg-[theme(colors.yellow.500)] 
+  w-full
+  overflow-hidden;
 
   p {
-    display: inline-block;
-    white-space: nowrap;
+    @apply 
+    whitespace-nowrap
+    inline-block;
+
     animation: marquee 15s linear infinite;
   }
 }

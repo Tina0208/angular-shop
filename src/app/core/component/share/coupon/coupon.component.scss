@@ -1,11 +1,22 @@
 :host {
-  @apply rounded w-[250px] flex;
+  @apply 
+  rounded 
+  w-[250px] 
+  flex 
+  overflow-hidden;
+
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  overflow: hidden;
 }
 
 .coupon-content {
-  @apply flex flex-col justify-center items-center p-[10px] bg-[#ffffff6e];
+  @apply 
+  flex 
+  flex-col 
+  justify-center 
+  items-center 
+  p-[10px]
+  bg-[#ffffff6e];
+  
   flex: 2;
 
   p:first-child {

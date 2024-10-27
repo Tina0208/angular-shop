@@ -16,6 +16,7 @@ const INPUT_CONTROL_VALUE_ACCESSOR = {
 export class InputComponent implements OnInit, ControlValueAccessor {
   private _content: string = '';
   @Input() type: string = 'text';
+  @Input() id: string = '';
   @Input() disabled: boolean = false;
   @Input() placeholder: string = '';
   onChange!: (value: any) => {};

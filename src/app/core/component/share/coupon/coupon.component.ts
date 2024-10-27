@@ -8,6 +8,7 @@ import { Coupon } from 'src/app/core/model/type/interface';
 })
 export class CouponComponent {
   @Input() coupon: Coupon = {} as Coupon;
+  @Input() labelFor?: string;
 
   constructor() { }
 }

@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class ListComponent {
   @Input() label: string = '';
   @Input() contentText: string | null = null;
+  @Input() labelFor?: string;
 
   constructor() { }
 }

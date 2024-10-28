@@ -1,5 +1,5 @@
 <mat-list-item>
-  <p class="title">{{ label }}</p>
+  <label class="title" [for]="labelFor">{{ label }}</label>
   <p *ngIf="contentText">{{ contentText }}</p>
   <ng-content></ng-content>
 </mat-list-item>

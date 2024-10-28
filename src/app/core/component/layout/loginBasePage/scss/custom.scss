@@ -1,0 +1,19 @@
+app-footer {
+  footer {
+    @apply
+    text-[theme(colors.orange.500)]
+    bg-[theme(colors.white)];
+
+    p {
+      @apply border-[theme(colors.orange.500)];
+    }
+  }
+}
+
+app-menu {
+  header {
+    @apply
+    text-[theme(colors.orange.500)]
+    bg-[theme(colors.white)];
+  }
+}

@@ -1,9 +1,9 @@
-@import url('./scss/material.scss');
+@use './scss/material.scss';
 
 .pay-detail-wrap {
-  @apply 
-  flex 
-  flex-col 
+  @apply
+  flex
+  flex-col
   gap-5;
 
   .coupon-title {
@@ -15,9 +15,9 @@
   }
 
   .coupon-container {
-    @apply 
-    flex 
-    flex-wrap 
+    @apply
+    flex
+    flex-wrap
     gap-5;
 
     .coupon {
